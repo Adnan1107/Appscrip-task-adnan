@@ -1,0 +1,205 @@
+/* Base Styles */
+.discover-section {
+  position: relative;
+  min-height: 40vh;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 30px 20px;
+}
+
+/* Subtle Glow */
+.bg-glow {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(255,255,255,0.05), transparent 70%);
+  animation: float 10s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Container for side-by-side layout */
+.discover-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  max-width: 1200px;
+  width: 100%;
+  z-index: 2;
+}
+
+/* Image container */
+.discover-image {
+  position: relative;
+  width: 320px;
+  height: 240px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  animation: fadeInLeft 1.5s ease-out;
+}
+
+/* Image with continuous Ken Burns movement */
+.discover-image img {
+  width: 110%;               /* Slightly oversized for pan/zoom space */
+  height: 110%;
+  object-fit: cover;
+  transform-origin: 50% 50%; /* Zoom from center */
+  animation: kenBurns 18s ease-in-out infinite;
+}
+
+/* Optional: pause animation + slight extra zoom on hover */
+.discover-image:hover img {
+  animation-play-state: paused;
+  transform: scale(1.12);
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Gentle Ken Burns effect: slow zoom + subtle pan */
+@keyframes kenBurns {
+  0% {
+    transform: scale(1.05) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.18) translate(-4%, -3%);
+  }
+  100% {
+    transform: scale(1.05) translate(0, 0);
+  }
+}
+
+/* Content */
+.discover-content {
+  text-align: left;
+  flex: 1;
+}
+
+.discover-heading {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: white;
+  line-height: 1.2;
+}
+
+.discover-text {
+  margin-top: 15px;
+  font-size: 1rem;
+  color: #bbb;
+  letter-spacing: 1px;
+}
+
+.discover-button {
+  margin-top: 25px;
+  padding: 12px 32px;
+  border-radius: 40px;
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.discover-button:hover {
+  background: white;
+  color: black;
+  transform: translateY(-3px);
+}
+
+/* ──────────────────────────────────────────────── */
+/* Responsive adjustments (unchanged from your original) */
+
+@media (max-width: 1024px) {
+  .discover-container {
+    gap: 40px;
+  }
+
+  .discover-image {
+    width: 280px;
+    height: 210px;
+  }
+
+  .discover-heading {
+    font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .discover-section {
+    padding: 30px 15px;
+    min-height: auto;
+  }
+
+  .discover-container {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .discover-content {
+    text-align: center;
+    order: 2;
+  }
+
+  .discover-image {
+    width: 100%;
+    max-width: 320px;
+    height: 220px;
+    order: 1;
+  }
+
+  .discover-heading {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    letter-spacing: 2px;
+  }
+
+  .discover-text {
+    font-size: 0.9rem;
+  }
+
+  .discover-button {
+    padding: 10px 24px;
+    font-size: 0.85rem;
+  }
+
+  .bg-glow {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .discover-image {
+    height: 180px;
+  }
+
+  .discover-heading {
+    font-size: 1.4rem;
+  }
+
+  .discover-button {
+    width: 100%;
+    max-width: 250px;
+  }
+}

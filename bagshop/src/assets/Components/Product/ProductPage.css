@@ -1,0 +1,107 @@
+.product-page-container {
+  display: flex;
+  max-width: 1240px;
+  margin: 40px auto;
+  gap: 30px;
+  padding: 0 20px;
+  color: white;
+}
+
+.sidebar {
+  width: 280px;
+  min-width: 280px;
+  background: #111;
+  padding: 24px 20px;
+  border-radius: 12px;
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+}
+
+.sidebar h2 {
+  font-size: 22px;
+  margin: 0 0 24px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #333;
+}
+
+.filter-group {
+  margin-bottom: 28px;
+}
+
+.filter-group h3 {
+  font-size: 17px;
+  margin: 0 0 14px 0;
+  color: #ccc;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.checkbox-label input {
+  margin-right: 12px;
+  accent-color: #e91e63; /* or any color you like */
+}
+
+.checkbox-label span {
+  user-select: none;
+}
+
+/* ────────────────────────────────────── */
+/* Everything below is YOUR ORIGINAL CODE – unchanged */
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  flex: 1;
+}
+
+.card {
+  background: #111;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-img {
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-body h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.price {
+  font-size: 14px;
+  color: #bbb;
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 18px;
+  color: #888;
+  padding: 60px 0;
+}
